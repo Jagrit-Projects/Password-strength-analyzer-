@@ -1,2 +1,54 @@
 # Password-strength-analyzer-
-My first code in python
+while True:
+  password = input("Please enter a password: ")
+  length = len(password)
+  score = 0
+
+  #RULE 1
+  if length >= 8:
+     score = score + 1
+  else:
+     print("Password is too short❌")
+  #RULE 2
+  has_number = False 
+
+  for letter in password:
+     if letter >= "0" and letter <= "9":
+         has_number = True
+         score = score + 1
+         break
+       
+  if has_number == False and score == 1:    
+     print("Password must contain a number❌")
+  #RULE 3
+  has_uppercase = False
+
+  for letter in password:
+      if letter.isupper():
+        has_uppercase = True
+        score = score + 1
+        break
+        
+  if has_uppercase == False and score == 2:
+     print("Password must contain an uppercase letter❌") 
+  #RULE 4    
+  has_symbols = False 
+
+  special_symbols = "@#$_&-+()/*:;!?%✓><\∆§×÷π√•|`~®©"  
+  for letter in password:
+      if letter in special_symbols:
+         has_symbols = True
+         score = score + 1
+         break 
+       
+  if has_symbols == False and score == 3:
+    print("Password must contain a special symbol❌")   
+    
+  if score == 4:
+     print("Password accepted!✅")
+     print("Strength = Strong!")
+     break
+  else: 
+     print("Strength = Weak!") 
+     print("Weak password!❌")
+     print("Try again!")   
