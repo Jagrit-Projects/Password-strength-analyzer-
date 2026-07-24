@@ -1,0 +1,125 @@
+print("                     WELCOME")
+
+while True:
+    username = input("Please create your username: ")
+    length = len(username)
+    if length >= 5:
+        break
+    else:
+        print("Username must be atleast 5 characters long❌")
+while True:    
+    password = input("Create your password: ")
+    length = len(password)
+    score = 0
+    if length >= 8:
+        score = score + 1
+    else:
+        print("Issue: Password is too short❌")
+        print("Try again🔄")
+        continue 
+        
+    has_number = False
+    
+    for letter in password:
+        if letter >= "0" and letter <= "9":
+            score = score + 1
+            has_number = True
+            break
+            
+    if not has_number:
+        print("Issue: Password must contain a number❌")
+        print("Try again🔄")
+        continue 
+    
+    has_uppercase = False
+    
+    for letter in password:
+        if letter.isupper():
+            score = score + 1
+            has_uppercase = True
+            break
+    if not has_uppercase:
+        print("Issue: Password must contain an uppercase letter❌")
+        print("Try again🔄")
+        continue 
+        
+    has_symbols = False
+    special_symbols = "@#$_&-+()/*:;!?~`|•√π÷×§∆£¢€¥^°=\™✓"
+    
+    for letter in password:
+        if letter in special_symbols:
+            score = score + 1
+            has_symbols = True
+            break
+    if not has_symbols:
+        print("Issue: Password must contain a special symbol❌")
+        print("Try again🔄")
+        continue 
+     
+    if score == 4:
+        print("Registration successful!✅")    
+        break
+        
+print("                     LOG IN")
+        
+correct_username = username
+correct_password = password
+attempts = 3
+    
+while attempts > 0:
+    Access_granted = False
+    Username = input("Enter your username: ")
+    Password = input("Enter your password: ")
+        
+    if Username == correct_username and Password == correct_password:
+        Acces_granted = True 
+        print("Access granted!✅")
+        break
+    else:
+        attempts = attempts - 1
+        print("Try again🔄")
+            
+        if attempts > 0:
+            print("Attempts left➡️ ", attempts)
+            print("Wrong password or username❌")
+        else:
+            print("0 Attempts left❌")
+            print("Login cancelled🔒")    
+while True:
+  if Access_granted == True:
+    print("                 CHOOSE AN OPTION")
+    print("1. Show username")
+    print("2. update password")
+    print("3. Log out")
+    choice = input("Choose an option: ")
+    
+    if choice == "1":
+       print("Your current username is:", username)
+       
+    elif choice == "2":
+        attempts = 3
+        while attempts > 0:
+            current_password = input("Enter your current password: ")
+            if current_password == password:
+                new_password = input("Enter your new password: ")
+                password = new_password
+                correct_password = password
+            else: 
+                attempts = attempts - 1
+                print("Try again🔄")
+                
+                if attempts > 0:
+                    print("Attempts left➡️ ", attempts)
+                    print("Wrong previous password❌")
+                else:
+                    print("0 attempts left")   
+                    print("Password update cancelled❌")
+                    
+    elif choice == "3":
+        print("Logged out successfully!")
+        print("Thank you for using my project")
+        print("             MADE BY - JAGRIT")
+        break
+    else: 
+        print("Invalid option❌")
+        print("Try again🔄")    
