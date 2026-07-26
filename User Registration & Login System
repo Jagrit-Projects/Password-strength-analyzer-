@@ -95,7 +95,7 @@ while attempts > 0:
 
 if Access_granted:
     while True:
-        priny("                                                              ")
+        print("                                                              ")
         print("CHOOSE AN OPTION")
         print("                                                               ")
         print("1. Show username")
